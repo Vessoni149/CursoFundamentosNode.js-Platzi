@@ -1,0 +1,10 @@
+Node es un entorno de ejecución de javascript fuera del navegador.
+Corre sobre el motor v8 creado por google. Convierte el codigo js a codigo maquina permitiendo que las aplicaciones si tienen un error de sintaxis, fallen en el momento en el que inicia la ejecucion y no en el momento en el que llega a leer esa sintaxis erronea y al estar escrito en c++ es suepr rapido.
+Todo funciona en base a modulos, todo lo que no sea sintaxis de programacion viene en modulos, muchos vienen por defecto con node, se puede crear modulos propios.
+Esta orientado a Eventos. Hay un bucle de eventos que se ejecuta constantemente. De vez en cuando se dispararan eventos que podremos escuchar, lo que nos permitira programar de forma reactiva.
+
+EventLoop: asincronia por diseño.
+EvenLopp es un bucle que se ejecuta todo el tiempo, todo lo que pase en la app va a funcionar de forma asincrona.Todo lo que escribamos se va a ejecutar aparte sin bloquearse por errores y podra seguir recibiendo peticiones. 
+Todo lo que escribamos va a generar un evento, se pondran en cola (event queue) y se enviaran al event loop. Ejecutandolo inmediatamente segun la cola o queue, o enviandolo al thread poll (operaciones que demoran). Puede ejecutar en paralelo diferentes tareas. El thread poll para cada peticion que tenga que hacer levantara un hilo nuevo dentro de nuestro procesador, y se va a encargar que ese proceso se eejcute en el tiempo que sea necesario, cuando el proceso termine, termina en evento y lo devuelve al event loop.
+
+Como es monohilo, si hay un error en la ejecucion para todo el loop.
